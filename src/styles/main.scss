@@ -4,7 +4,6 @@ $gap: 1px;
 $padding: 10px;
 $cell-width: 7 * $cell-size + 6 * $gap + 2 * $padding;
 $start-day: (mon 0, tue 1, wed 2, thu 3, fri 4, sat 5, sun 6);
-$index: 0;
 
 body {
   margin: 0;
@@ -57,15 +56,13 @@ body {
       .calendar__day:first-child {
         margin-left: ($cell-size + $gap) * $index;
       }
-
-      $index: $index + 1;
     }
+  }
 
-    @for $l from 28 through 31 {
-      &--month-length-#{$l} {
-        .calendar__day:nth-child(n + #{$l + 1}) {
-          display: none;
-        }
+  @for $l from 28 through 31 {
+    &--month-length-#{$l} {
+      .calendar__day:nth-child(n + #{$l + 1}) {
+        display: none;
       }
     }
   }
